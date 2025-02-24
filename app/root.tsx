@@ -9,6 +9,8 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import { SiteNavigation } from "~/libs/components/ui/SiteNavigation";
+import { CardContainer } from "~/libs/components/ui/CardContainer";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -24,16 +26,22 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const currentYear = new Date().getFullYear();
   return (
-    <html lang="en">
+    <html lang="ja">
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="viewport"
+          content="initial-scale=1, maximum-scale=5, minimum-scale=1, viewport-fit=cover"
+        />
         <Meta />
         <Links />
       </head>
       <body>
-        {children}
+        <SiteNavigation />
+        <CardContainer>{children}</CardContainer>
+        <div className="text-center text-sm my-10">©︎ {currentYear} takewell.app</div>
         <ScrollRestoration />
         <Scripts />
       </body>

@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+.topScreen {
+  @apply flex flex-col justify-between min-h-screen;
+  /* position: fixed; */
+}
+
+.card {
+  @apply m-auto rounded-xl flex-col block px-6 py-20 mt-20;
+  background-color: #e3e6ec;
+  position: relative;
+  box-shadow: 20px 20px 60px #c1c4c9,
+             -20px -20px 60px #ffffff;
+  border: 1px;
+  max-width: 640px;
+  width: 100%;
+  height: auto;
+  min-height: 80vh;
+  overflow-y: auto;
+
+  @media (max-width: 640px) {
+    box-shadow: none;
+    margin-top: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    min-height: 100vh;
+  }
+}
+
